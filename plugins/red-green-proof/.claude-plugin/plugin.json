@@ -1,0 +1,13 @@
+{
+  "name": "red-green-proof",
+  "description": "Turn a suspected bug into a proven one: verify the cause, write a test that fails on today's code, apply the smallest fix, then revert the fix and confirm the test goes red again.",
+  "version": "0.1.0",
+  "author": {
+    "name": "RooAGI",
+    "url": "https://github.com/RooAGI"
+  },
+  "homepage": "https://github.com/RooAGI/red-green-proof",
+  "repository": "https://github.com/RooAGI/red-green-proof",
+  "license": "MIT",
+  "keywords": ["testing", "tdd", "debugging", "regression", "red-green"]
+}

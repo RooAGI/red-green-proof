@@ -1,0 +1,20 @@
+{
+  "$schema": "https://code.claude.com/schemas/marketplace.json",
+  "name": "rooagi",
+  "owner": {
+    "name": "RooAGI",
+    "url": "https://github.com/RooAGI"
+  },
+  "description": "RooAGI skills for Claude Code",
+  "version": "0.1.0",
+  "metadata": {
+    "pluginRoot": "./plugins"
+  },
+  "plugins": [
+    {
+      "name": "red-green-proof",
+      "source": "./plugins/red-green-proof",
+      "description": "Turn a suspected bug into a proven one: red first, green second, red again on purpose."
+    }
+  ]
+}

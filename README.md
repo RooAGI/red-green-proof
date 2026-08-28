@@ -42,6 +42,18 @@ tests, each with an honesty label required in the file header.
 
 ## Install
 
+### Claude Code — plugin marketplace (recommended)
+
+```
+/plugin marketplace add RooAGI/red-green-proof
+/plugin install red-green-proof@rooagi
+```
+
+Updates flow through `/plugin update`. Invoke as `/red-green-proof` (or the
+fully-qualified `/red-green-proof:red-green-proof`).
+
+### Manual — Claude Code and/or Codex
+
 ```bash
 git clone https://github.com/RooAGI/red-green-proof ~/sources/red-green-proof
 cd ~/sources/red-green-proof
@@ -85,13 +97,19 @@ new session before the command is available.
 ## Layout
 
 ```
-SKILL.md                     Claude Code skill (frontmatter + full guidance)
-prompts/red-green-proof.md   Condensed prompt form for Codex
-install.sh                   Installer for both
+SKILL.md                       Canonical skill (frontmatter + full guidance) — source of truth
+prompts/red-green-proof.md     Condensed prompt form for Codex
+install.sh                     Manual installer for both
+sync-plugin.sh                 Copies SKILL.md into the plugin tree; --check verifies
+
+.claude-plugin/marketplace.json                        RooAGI marketplace manifest
+plugins/red-green-proof/.claude-plugin/plugin.json     Plugin manifest
+plugins/red-green-proof/skills/red-green-proof/SKILL.md  Copy of the canonical skill
 ```
 
-The two files carry the same discipline at different lengths. Edit `SKILL.md`
-first; keep the Codex prompt in sync.
+`SKILL.md` at the root is the source of truth — it is also the basis for the
+condensed Codex prompt. After editing it, run `./sync-plugin.sh` to refresh the
+plugin copy, keep the Codex prompt in step, and commit all three.
 
 ## Origin
 
