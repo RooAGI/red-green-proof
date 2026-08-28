@@ -67,14 +67,18 @@ if [[ $DO_CLAUDE -eq 1 ]]; then
 fi
 
 if [[ $DO_CODEX -eq 1 ]]; then
+  CODEX_SKILL_DIR="$HOME/.codex/skills/$NAME"
   CODEX_PROMPT="$HOME/.codex/prompts/$NAME.md"
   if [[ $UNINSTALL -eq 1 ]]; then
+    rm -rf "$CODEX_SKILL_DIR"
     rm -f "$CODEX_PROMPT"
-    echo "Codex: removed $CODEX_PROMPT"
+    echo "Codex: removed $CODEX_SKILL_DIR and $CODEX_PROMPT"
   else
-    echo "Codex -> $CODEX_PROMPT"
+    echo "Codex -> $CODEX_SKILL_DIR"
+    place "$SRC/SKILL.md" "$CODEX_SKILL_DIR/SKILL.md"
+    echo "  installed skill: $NAME"
+    echo "Codex compatibility prompt -> $CODEX_PROMPT"
     place "$SRC/prompts/$NAME.md" "$CODEX_PROMPT"
-    echo "  invoke with: /$NAME"
   fi
 fi
 

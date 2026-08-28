@@ -64,7 +64,7 @@ cd ~/sources/red-green-proof
 |---|---|
 | `./install.sh` | Both Claude Code and Codex, user-level |
 | `./install.sh --claude` | `~/.claude/skills/red-green-proof/SKILL.md` |
-| `./install.sh --codex` | `~/.codex/prompts/red-green-proof.md` |
+| `./install.sh --codex` | `~/.codex/skills/red-green-proof/SKILL.md` plus the legacy `~/.codex/prompts/red-green-proof.md` |
 | `./install.sh --project /path/to/repo` | Repo-local `.claude/skills/` (checked in, shared with the team) |
 | `./install.sh --link` | Symlink instead of copy — edits here take effect immediately |
 | `./install.sh --uninstall` | Remove |
@@ -92,7 +92,10 @@ Or just describe the task — the description triggers on phrases like "prove th
 bug", "make the test fail first", and "is that test load-bearing".
 
 **Note:** Claude Code indexes skills at session start. After installing, start a
-new session before the command is available.
+new session before the skill is available. Codex loads the installed skill from
+`~/.codex/skills/red-green-proof/`; the prompt copy is retained for older Codex
+versions. The `/red-green-proof` slash command is provided by the Claude Code
+plugin; Codex should use its skill invocation or the natural-language triggers.
 
 ## Layout
 
