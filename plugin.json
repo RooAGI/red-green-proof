@@ -1,0 +1,4 @@
+{
+  "name": "red-green-proof",
+  "description": "Turn a suspected bug into a proven one: verify the cause, write a failing test, apply the smallest fix, and prove the test is load-bearing."
+}

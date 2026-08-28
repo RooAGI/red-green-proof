@@ -1,6 +1,7 @@
 # red-green-proof
 
-A skill for Claude Code and Codex that turns a *suspected* bug into a *proven* one.
+A skill for Claude Code, Codex, and Agy (Google Antigravity) that turns a
+*suspected* bug into a *proven* one.
 
 > A bug is not fixed because the tests pass. A bug is fixed when a test **fails
 > without your fix and passes with it**, and you have watched it do both.
@@ -74,6 +75,23 @@ or by describing the task with triggers such as “prove the bug” or “make t
 test fail first”. The `/red-green-proof` command is provided by the Claude Code
 plugin only.
 
+### Agy — native plugin
+
+Install the plugin globally with Agy:
+
+```bash
+agy plugin install https://github.com/RooAGI/red-green-proof
+```
+
+Start a new Agy session, then invoke the skill as:
+
+```text
+/red-green-proof
+```
+
+Agy discovers the skill from the plugin’s root `plugin.json` and
+`skills/red-green-proof/SKILL.md`.
+
 ### Manual — Claude Code and/or Codex
 
 ```bash
@@ -113,11 +131,12 @@ Give a target explicitly when you want to steer it somewhere else:
 Or just describe the task — the description triggers on phrases like "prove the
 bug", "make the test fail first", and "is that test load-bearing".
 
-**Note:** Claude Code indexes skills at session start. After installing, start a
-new session before the skill is available. Codex loads the installed skill from
+**Note:** Claude Code and Agy index skills at session start. After installing,
+start a new session before the skill is available. Codex loads the installed skill from
 `~/.codex/skills/red-green-proof/`; the prompt copy is retained for older Codex
 versions. The `/red-green-proof` slash command is provided by the Claude Code
-plugin; Codex should use its skill invocation or the natural-language triggers.
+and Agy plugins expose it as `/red-green-proof`; Codex should use its skill
+invocation or the natural-language triggers.
 
 ## Layout
 
@@ -126,12 +145,14 @@ SKILL.md                       Canonical skill (frontmatter + full guidance) —
 prompts/red-green-proof.md     Condensed prompt form for Codex
 install.sh                     Manual installer for both
 sync-plugin.sh                 Copies SKILL.md into the plugin tree; --check verifies
+skills/red-green-proof/SKILL.md Agy plugin copy of the canonical skill
 
 .claude-plugin/marketplace.json                        RooAGI marketplace manifest
 plugins/red-green-proof/.claude-plugin/plugin.json     Plugin manifest
 plugins/red-green-proof/skills/red-green-proof/SKILL.md  Copy of the canonical skill
 .agents/plugins/marketplace.json                       Codex marketplace manifest
 plugins/red-green-proof/.codex-plugin/plugin.json      Codex plugin manifest
+plugin.json                                             Agy plugin manifest
 ```
 
 `SKILL.md` at the root is the source of truth — it is also the basis for the
