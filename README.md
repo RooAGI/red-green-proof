@@ -52,6 +52,28 @@ tests, each with an honesty label required in the file header.
 Updates flow through `/plugin update`. Invoke as `/red-green-proof` (or the
 fully-qualified `/red-green-proof:red-green-proof`).
 
+### Codex — Git marketplace
+
+Add the GitHub repository as a Codex marketplace, then install the plugin:
+
+```bash
+codex plugin marketplace add RooAGI/red-green-proof --ref main
+codex plugin add red-green-proof@rooagi
+```
+
+When a new version is pushed, refresh the marketplace and reinstall the plugin:
+
+```bash
+codex plugin marketplace upgrade rooagi
+codex plugin add red-green-proof@rooagi
+```
+
+The Codex plugin installs the `red-green-proof` skill. Codex does not register
+custom slash commands, so use the skill by asking Codex to use `red-green-proof`
+or by describing the task with triggers such as “prove the bug” or “make the
+test fail first”. The `/red-green-proof` command is provided by the Claude Code
+plugin only.
+
 ### Manual — Claude Code and/or Codex
 
 ```bash
@@ -108,6 +130,8 @@ sync-plugin.sh                 Copies SKILL.md into the plugin tree; --check ver
 .claude-plugin/marketplace.json                        RooAGI marketplace manifest
 plugins/red-green-proof/.claude-plugin/plugin.json     Plugin manifest
 plugins/red-green-proof/skills/red-green-proof/SKILL.md  Copy of the canonical skill
+.agents/plugins/marketplace.json                       Codex marketplace manifest
+plugins/red-green-proof/.codex-plugin/plugin.json      Codex plugin manifest
 ```
 
 `SKILL.md` at the root is the source of truth — it is also the basis for the
