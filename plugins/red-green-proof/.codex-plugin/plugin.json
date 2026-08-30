@@ -28,6 +28,13 @@
       "Write"
     ],
     "websiteURL": "https://github.com/RooAGI/red-green-proof",
+    "privacyPolicyURL": "https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement",
+    "termsOfServiceURL": "https://docs.github.com/en/site-policy/github-terms/github-terms-of-service",
+    "composerIcon": "./assets/icon.svg",
+    "logo": "./assets/logo.svg",
+    "screenshots": [
+      "./assets/screenshot.svg"
+    ],
     "defaultPrompt": [
       "Prove this bug using the red-green-proof loop."
     ]
